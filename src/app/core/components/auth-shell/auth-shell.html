@@ -1,0 +1,23 @@
+<div class="auth-container">
+  <mat-card class="auth-card">
+    @if (currentView() === 'login') {
+        <div animate.enter="fade-in" animate.leave="fade-out">
+        <app-login></app-login>
+        </div>
+    }@else if(currentView() === 'register'){
+        <div animate.enter="fade-in" animate.leave="fade-out">
+        <app-register></app-register>
+        </div>
+    }
+
+    <div class="switch-container">
+      <button mat-button color="accent" (click)="toggleView()">
+        {{
+          currentView() === 'login'
+            ? '¿No tienes cuenta? Crear una'
+            : '¿Ya tienes cuenta? Inicia sesión'
+        }}
+      </button>
+    </div>
+  </mat-card>
+</div>

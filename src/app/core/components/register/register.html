@@ -6,24 +6,33 @@
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
         <input matInput type="email" formControlName="email" />
-        <mat-error *ngIf="form.get('email')?.hasError('required')">El email es obligatorio</mat-error>
-        <mat-error *ngIf="form.get('email')?.hasError('email')">Formato inválido</mat-error>
+        @if(form.get('email')?.hasError('required')){<mat-error>El email es obligatorio</mat-error>}
+        @if(form.get('email')?.hasError('email')){<mat-error>Formato inválido</mat-error>}
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Contraseña</mat-label>
         <input matInput type="password" formControlName="password" />
-        <mat-error *ngIf="form.get('password')?.hasError('required')">La contraseña es obligatoria</mat-error>
-        <mat-error *ngIf="form.get('password')?.hasError('minlength')">Mínimo 6 caracteres</mat-error>
+        @if(form.get('password')?.hasError('required')){<mat-error>La contraseña es obligatoria</mat-error>}
+        @if(form.get('password')?.hasError('minlength')){<mat-error>Mínimo 6 caracteres</mat-error>}
       </mat-form-field>
 
-      <div *ngIf="errorMessage" class="text-red-500 text-sm">
-        {{ errorMessage }}
-      </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Repetir Contraseña</mat-label>
+        <input matInput type="password" formControlName="repeatPassword" />
+        <!-- <mat-error *ngIf="form.get('repeatPassword')?.hasError('required')">La contraseña es obligatoria</mat-error> -->
+      </mat-form-field>
 
-      <div *ngIf="successMessage" class="text-green-600 text-sm">
-        {{ successMessage }}
-      </div>
+      @if(errorMessage){
+        <div class="text-red-500 text-sm">
+          {{ errorMessage }}
+        </div>
+      }
+      @if(successMessage){
+        <div class="text-green-600 text-sm">
+          {{ successMessage }}
+        </div>
+      }
 
       <button
         mat-flat-button
@@ -31,12 +40,13 @@
         type="submit"
         [disabled]="loading"
       >
-        <ng-container *ngIf="!loading; else spinner">
+      @if(!loading){
+        <ng-container>
           Registrarse
         </ng-container>
-        <ng-template #spinner>
-          <mat-progress-spinner diameter="20" mode="indeterminate"></mat-progress-spinner>
-        </ng-template>
+      }@else{
+        <mat-progress-spinner diameter="20" mode="indeterminate"></mat-progress-spinner>
+      }
       </button>
     </form>
   </mat-card>

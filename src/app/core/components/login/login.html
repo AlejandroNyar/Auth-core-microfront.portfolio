@@ -6,20 +6,22 @@
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
         <input matInput type="email" formControlName="email" />
-        <mat-error *ngIf="form.get('email')?.hasError('required')">El email es obligatorio</mat-error>
-        <mat-error *ngIf="form.get('email')?.hasError('email')">Formato inválido</mat-error>
+        @if (form.get('email')?.hasError('required')){ <mat-error>El email es obligatorio</mat-error> }
+        @if (form.get('email')?.hasError('email')){ <mat-error>Formato inválido</mat-error> }
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Contraseña</mat-label>
         <input matInput type="password" formControlName="password" />
-        <mat-error *ngIf="form.get('password')?.hasError('required')">La contraseña es obligatoria</mat-error>
-        <mat-error *ngIf="form.get('password')?.hasError('minlength')">Mínimo 6 caracteres</mat-error>
+        @if (form.get('password')?.hasError('password')){ <mat-error>La contraseña es obligatoria</mat-error> }
+        @if (form.get('password')?.hasError('minlenght')){ <mat-error *ngIf="form.get('password')?.hasError('minlength')">Mínimo 6 caracteres</mat-error>}
       </mat-form-field>
 
-      <div *ngIf="errorMessage" class="text-red-500 text-sm">
-        {{ errorMessage }}
-      </div>
+      @if (errorMessage){
+        <div class="text-red-500 text-sm">
+          {{ errorMessage }}
+        </div>
+      }
 
       <button
         mat-flat-button

@@ -14,10 +14,14 @@
       <button mat-button color="accent" (click)="toggleView()">
         {{
           currentView() === 'login'
-            ? '¿No tienes cuenta? Crear una'
-            : '¿Ya tienes cuenta? Inicia sesión'
+            ? this.toggleViewText1()
+            : this.toggleViewText2()
         }}
       </button>
     </div>
   </mat-card>
+</div>
+<div class="actions text-center mt-4">
+  <button mat-button (click)="openPrivacyDialog()">{{this.translateService.t('html.components.auth-shell.privacyPolicy')()}}</button>
+  <button mat-button (click)="openSettingsDialog()">{{this.translateService.t('html.components.auth-shell.settings')()}}</button>
 </div>

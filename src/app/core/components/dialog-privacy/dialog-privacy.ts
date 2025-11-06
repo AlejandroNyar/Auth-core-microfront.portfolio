@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-dialog-privacy',
-  imports: [],
+  imports: [CommonModule, MatDialogModule, MatButtonModule],
   templateUrl: './dialog-privacy.html',
   styleUrl: './dialog-privacy.scss',
 })

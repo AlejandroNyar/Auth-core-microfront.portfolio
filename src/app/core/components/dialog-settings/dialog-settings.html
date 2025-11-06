@@ -1,1 +1,36 @@
-<p>dialog-settings works!</p>
+<h2 mat-dialog-title>Configuración</h2>
+
+<mat-dialog-content>
+  <mat-slide-toggle
+    [checked]="settings.darkMode()"
+    (change)="toggleDarkMode()">
+    Modo oscuro
+  </mat-slide-toggle>
+
+  <mat-form-field appearance="fill" class="w-full mt-4">
+    <mat-label>Idioma</mat-label>
+    <mat-select
+      [value]="settings.language()"
+      (selectionChange)="updateLanguage($event.value)">
+      <mat-option value="es">Español</mat-option>
+      <mat-option value="en">Inglés</mat-option>
+      <mat-option value="fr">Francés</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="w-full mt-4">
+    <mat-label>Tema</mat-label>
+    <mat-select
+      [value]="settings.theme()"
+      (selectionChange)="updateTheme($event.value)">
+      <mat-option value="default">Predeterminado</mat-option>
+      <mat-option value="blue">Azul</mat-option>
+      <mat-option value="purple">Morado</mat-option>
+      <mat-option value="green">Verde</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-stroked-button mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>

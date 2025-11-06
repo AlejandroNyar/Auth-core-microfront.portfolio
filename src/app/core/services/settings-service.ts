@@ -1,5 +1,5 @@
 import { inject, Injectable, signal, WritableSignal } from '@angular/core';
-import { TranslateService } from './translate.service';
+import { TranslateService } from './translate-service';
 
 @Injectable({
   providedIn: 'root',
@@ -32,9 +32,7 @@ export class SettingsService {
 
   loadSettings() {
     const cookie = this.getCookie(this.cookieName);
-    console.log("loadSettings Service: innit")
     if (cookie) {
-      console.log("loadSettings Service:", cookie)
       try {
         const settings = JSON.parse(cookie);
         this.darkMode.set(settings.darkMode ?? false);

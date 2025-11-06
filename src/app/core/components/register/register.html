@@ -1,24 +1,24 @@
 <div class="flex justify-center items-center h-screen bg-gray-100">
   <mat-card class="w-96 p-6 rounded-2xl shadow-md">
-    <h2 class="text-2xl font-semibold mb-6 text-center">Crear Cuenta</h2>
+    <h2 class="text-2xl font-semibold mb-6 text-center">{{this.translate.t("html.components.loginAndRegister.titleRegister")}}</h2>
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
       <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
+        <mat-label>{{this.translate.t("html.components.loginAndRegister.emailLbl")}}</mat-label>
         <input matInput type="email" formControlName="email" />
-        @if(form.get('email')?.hasError('required')){<mat-error>El email es obligatorio</mat-error>}
-        @if(form.get('email')?.hasError('email')){<mat-error>Formato inválido</mat-error>}
+        @if(form.get('email')?.hasError('required')){<mat-error>{{this.translate.t("html.errors.form.requiredEmail")}}</mat-error>}
+        @if(form.get('email')?.hasError('email')){<mat-error>{{this.translate.t("html.errors.form.formatInvalid")}}</mat-error>}
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Contraseña</mat-label>
+        <mat-label>{{this.translate.t("html.components.loginAndRegister.passLbl")}}</mat-label>
         <input matInput type="password" formControlName="password" />
-        @if(form.get('password')?.hasError('required')){<mat-error>La contraseña es obligatoria</mat-error>}
-        @if(form.get('password')?.hasError('minlength')){<mat-error>Mínimo 6 caracteres</mat-error>}
+        @if(form.get('password')?.hasError('required')){<mat-error>{{this.translate.t("html.errors.form.requiredPass")}}</mat-error>}
+        @if(form.get('password')?.hasError('minlength')){<mat-error>{{this.translate.t("html.errors.form.passMinLenght")}}</mat-error>}
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Repetir Contraseña</mat-label>
+        <mat-label>{{this.translate.t("html.components.loginAndRegister.repeatPassLbl")}}</mat-label>
         <input matInput type="password" formControlName="repeatPassword" />
         <!-- <mat-error *ngIf="form.get('repeatPassword')?.hasError('required')">La contraseña es obligatoria</mat-error> -->
       </mat-form-field>
@@ -42,7 +42,7 @@
       >
       @if(!loading){
         <ng-container>
-          Registrarse
+          {{this.translate.t("html.components.loginAndRegister.registerTextBtn")}}
         </ng-container>
       }@else{
         <mat-progress-spinner diameter="20" mode="indeterminate"></mat-progress-spinner>

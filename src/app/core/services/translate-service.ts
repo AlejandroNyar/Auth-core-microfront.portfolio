@@ -20,7 +20,7 @@ export class TranslateService {
           this.currentLang.set(lang);
         }),
         catchError((error) => {
-          console.error(`Error cargando traducciones para ${lang}:`, error);
+          console.error(`${this.t("errors.translate")} ${lang}:`, error);
           return of({});
         })
       )

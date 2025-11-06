@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { TranslateService } from '../../services/translate-service';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +26,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 export class Login {
   private fb = inject(FormBuilder);
   private auth = inject(AuthService);
+  translate = inject(TranslateService);
 
   loading = false;
   errorMessage = '';
@@ -43,10 +45,10 @@ export class Login {
 
     try {
       await this.auth.login(email!, password!);
-      console.log('✅ Login exitoso');
-      // Aquí puedes redirigir o enviar evento a otro microfrontend
+      console.log('Login exitoso');
+      //redirigir o enviar evento a otro microfrontend
     } catch (err: any) {
-      this.errorMessage = 'Error en el login: ' + err.message;
+      this.errorMessage = this.translate.t("errors.login") + err.message;
     } finally {
       this.loading = false;
     }

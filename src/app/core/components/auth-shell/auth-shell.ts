@@ -7,7 +7,7 @@ import { Login } from '../login/login';
 import { DialogPrivacy } from '../dialog-privacy/dialog-privacy';
 import { DialogSettings } from '../dialog-settings/dialog-settings';
 import { MatDialog } from '@angular/material/dialog';
-import { TranslateService } from '../../services/translate.service';
+import { TranslateService } from '../../services/translate-service';
 import { SettingsService } from '../../services/settings-service';
 
 @Component({

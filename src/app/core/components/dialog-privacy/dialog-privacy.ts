@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { TranslateService } from '../../services/translate-service';
 
 @Component({
   selector: 'app-dialog-privacy',
@@ -10,5 +11,5 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './dialog-privacy.scss',
 })
 export class DialogPrivacy {
-
+  translate = inject(TranslateService);
 }

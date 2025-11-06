@@ -7,6 +7,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { SettingsService } from '../../services/settings-service';
+import { TranslateService } from '../../services/translate-service';
 @Component({
   selector: 'app-dialog-settings',
   imports: [
@@ -23,6 +24,7 @@ import { SettingsService } from '../../services/settings-service';
 })
 export class DialogSettings {
   settings = inject(SettingsService);
+  translate = inject(TranslateService);
 
   toggleDarkMode() {
     this.settings.darkMode.update(v => !v);

@@ -1,12 +1,61 @@
 {
-    "html": {
-        "components":{
-            "auth-shell":{
-                "privacyPolicy": "Datenschutzrichtlinie",
-                "settings": "Einstellungen",
-                "toggleViewSignin": "Sie haben noch kein Konto? Jetzt erstellen!",
-                "toggleViewLogin": "Sie haben bereits ein Konto? Dann melden Sie sich an."
-            }
+  "html": {
+    "components": {
+      "auth-shell": {
+        "privacyPolicy": "Datenschutzrichtlinie",
+        "settings": "Einstellungen",
+        "toggleViewSignin": "Noch kein Konto? Jetzt erstellen",
+        "toggleViewLogin": "Bereits ein Konto? Anmelden"
+      },
+      "loginAndRegister": {
+        "titleLogin": "Anmelden",
+        "titleRegister": "Konto erstellen",
+        "emailLbl": "E-Mail",
+        "passLbl": "Passwort",
+        "repeatPassLbl": "Passwort wiederholen",
+        "loginTextBtn": "Einloggen",
+        "registerTextBtn": "Registrieren"
+      },
+      "dialog": {
+        "privacy": {
+          "title": "Datenschutzrichtlinie und Datenverwaltung",
+          "authText": "In dieser Anwendung werden Ihre Daten gemäß den besten Datenschutzpraktiken verwaltet.",
+          "minData": "Es werden nur die minimal erforderlichen Daten zur Authentifizierung (E-Mail und UID) gespeichert.",
+          "thirdParty": "Es werden keine persönlichen Daten an Dritte weitergegeben.",
+          "firebaseSession": "Die Sitzungsverwaltung erfolgt über Firebase Authentication.",
+          "deleteData": "Sie können die Löschung Ihrer Daten jederzeit per E-Mail beantragen:",
+          "contactInfo": "alejandropb@gmail.com",
+          "acceptTermsText": "Durch die weitere Nutzung der Anwendung akzeptieren Sie diese Datenschutzrichtlinie und die Verwaltung Ihrer Daten gemäß diesen Bedingungen.",
+          "acceptTextBtn": "Akzeptieren"
+        },
+        "settings": {
+          "title": "Einstellungen",
+          "darkModeLbl": "Dunkelmodus",
+          "languageLbl": "Sprache",
+          "esLanguagelbl": "Spanisch",
+          "enLanguagelbl": "Englisch",
+          "deLanguagelbl": "Deutsch",
+          "themeLbl": "Thema",
+          "closeBtn": "Schließen"
         }
+      }
     }
+  },
+  "errors": {
+    "forms": {
+      "formatInvalid": "Ungültiges Format",
+      "requiredEmail": "E-Mail ist erforderlich",
+      "requiredPass": "Passwort ist erforderlich",
+      "passMinLenght": "Mindestens 6 Zeichen"
+    },
+    "login": "Anmeldefehler:",
+    "register": "Registrierungsfehler:",
+    "settings": "Fehler beim Parsen des Einstellungs-Cookies",
+    "translate": "Fehler beim Laden der Übersetzungen für "
+  },
+  "success": {
+    "register": {
+      "registersuccess": "Konto erfolgreich erstellt. Sie können sich jetzt anmelden."
+    }
+  }
 }

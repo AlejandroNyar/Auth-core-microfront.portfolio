@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { createUserWithEmailAndPassword } from '@angular/fire/auth';
 import { AuthService } from '../../services/auth';
+import { TranslateService } from '../../services/translate-service';
 
 @Component({
   selector: 'app-register',
@@ -24,6 +25,7 @@ import { AuthService } from '../../services/auth';
 export class Register {
   private fb = inject(FormBuilder);
   private auth = inject(AuthService);
+  translate = inject(TranslateService);
 
   loading = false;
   errorMessage = '';
@@ -46,10 +48,10 @@ export class Register {
     try {
       // Utilizamos directamente createUserWithEmailAndPassword
       await createUserWithEmailAndPassword(this.auth['auth'], email!, password!);
-      this.successMessage = '✅ Cuenta creada exitosamente. Ahora puedes iniciar sesión.';
+      this.successMessage = this.translate.t("success.register.registerSuccess").toString();
       this.form.reset();
     } catch (err: any) {
-      this.errorMessage = 'Error al registrar: ' + err.message;
+      this.errorMessage = this.translate.t("errors.register") + err.message;
     } finally {
       this.loading = false;
     }

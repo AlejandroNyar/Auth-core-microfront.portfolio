@@ -1,22 +1,21 @@
-<h2 mat-dialog-title>Política de Privacidad y Gestión de Datos</h2>
+<h2 mat-dialog-title>{{this.translate.t("html.dialog.privacy.title")}}</h2>
 
 <mat-dialog-content>
   <p>
-    En esta aplicación, tus datos se gestionan de acuerdo con las mejores prácticas de privacidad.
+    {{this.translate.t("html.dialog.privacy.authText")}}
   </p>
   <ul>
-    <li>Solo se almacenan los datos mínimos necesarios para la autenticación (correo y UID).</li>
-    <li>No se comparten datos personales con terceros.</li>
-    <li>El almacenamiento de sesión se gestiona mediante Firebase Authentication.</li>
-    <li>Puedes solicitar la eliminación de tus datos en cualquier momento.</li>
+    <li>{{this.translate.t("html.dialog.privacy.minData")}}</li>
+    <li>{{this.translate.t("html.dialog.privacy.thirdParty")}}</li>
+    <li>{{this.translate.t("html.dialog.privacy.firebaseSession")}}</li>
+    <li>{{this.translate.t("html.dialog.privacy.deleteData")}}</li>
   </ul>
 
   <p>
-    Al continuar utilizando la aplicación, aceptas esta política de privacidad y la gestión de tus datos
-    de acuerdo con estos términos.
+    {{this.translate.t("html.dialog.privacy.acceptTermsText")}}
   </p>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-  <button mat-stroked-button mat-dialog-close>Aceptar</button>
+  <button mat-stroked-button mat-dialog-close>{{this.translate.t("html.dialog.privacy.acceptTextBtn")}}</button>
 </mat-dialog-actions>

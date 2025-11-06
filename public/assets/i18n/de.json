@@ -1,0 +1,12 @@
+{
+    "html": {
+        "components":{
+            "auth-shell":{
+                "privacyPolicy": "Datenschutzrichtlinie",
+                "settings": "Einstellungen",
+                "toggleViewSignin": "Sie haben noch kein Konto? Jetzt erstellen!",
+                "toggleViewLogin": "Sie haben bereits ein Konto? Dann melden Sie sich an."
+            }
+        }
+    }
+}

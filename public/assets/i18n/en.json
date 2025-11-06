@@ -1,0 +1,12 @@
+{
+    "html": {
+        "components":{
+            "auth-shell":{
+                "privacyPolicy": "Privacy Policy",
+                "settings": "Settings",
+                "toggleViewSignin": "Don't have an account? Create one",
+                "toggleViewLogin": "Already have an account? Log in"
+            }
+        }
+    }
+}

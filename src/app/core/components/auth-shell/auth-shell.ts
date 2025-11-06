@@ -20,13 +20,11 @@ export class AuthShell{
 
   settingsService: SettingsService = inject(SettingsService); 
   translateService: TranslateService = inject(TranslateService);
-  toggleViewText1 = this.translateService.t('html.components.auth-shell.toggleViewSignin');
-  toggleViewText2 = this.translateService.t('html.components.auth-shell.toggleViewLogin');
+  toggleViewTextSignIn = this.translateService.t('html.components.auth-shell.toggleViewSignin');
+  toggleViewTextLogIn = this.translateService.t('html.components.auth-shell.toggleViewLogin');
   currentView: WritableSignal<'login' | 'register'> = signal<'login' | 'register'>('login');
 
-  constructor(private dialog: MatDialog) {
-    console.log(this.translateService.t('html.components.auth-shell.toggleViewSignin'))
-  }
+  constructor(private dialog: MatDialog) {}
 
   toggleView() {
     this.currentView.update((v) => (v === 'login' ? 'register' : 'login'));

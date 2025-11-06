@@ -14,8 +14,8 @@
       <button mat-button color="accent" (click)="toggleView()">
         {{
           currentView() === 'login'
-            ? this.toggleViewText1()
-            : this.toggleViewText2()
+            ? this.toggleViewTextSignIn()
+            : this.toggleViewTextLogIn()
         }}
       </button>
     </div>

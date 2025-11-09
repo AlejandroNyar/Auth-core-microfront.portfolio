@@ -9,10 +9,11 @@ import { DialogSettings } from '../dialog-settings/dialog-settings';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '../../services/translate-service';
 import { SettingsService } from '../../services/settings-service';
+import { QuickSettings } from '../quick-settings/quick-settings';
 
 @Component({
   selector: 'app-auth-shell',
-  imports: [CommonModule, Login, Register, MatButtonModule, MatCardModule],
+  imports: [CommonModule, QuickSettings, Login, Register, MatButtonModule, MatCardModule],
   templateUrl: './auth-shell.html',
   styleUrl: './auth-shell.scss',
 })
@@ -40,6 +41,6 @@ export class AuthShell {
   }
 
   openSettingsDialog() {
-    this.dialog.open(DialogSettings, { width: '400px' });
+    this.dialog.open(DialogSettings, { width: '500px' });
   }
 }

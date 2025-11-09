@@ -16,18 +16,23 @@ import { SettingsService } from '../../services/settings-service';
   templateUrl: './auth-shell.html',
   styleUrl: './auth-shell.scss',
 })
-export class AuthShell{
-
-  settingsService: SettingsService = inject(SettingsService); 
+export class AuthShell {
+  settingsService: SettingsService = inject(SettingsService);
   translateService: TranslateService = inject(TranslateService);
   toggleViewTextSignIn = this.translateService.t('html.components.auth-shell.toggleViewSignin');
   toggleViewTextLogIn = this.translateService.t('html.components.auth-shell.toggleViewLogin');
   currentView: WritableSignal<'login' | 'register'> = signal<'login' | 'register'>('login');
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog) {
+    
+  }
 
   toggleView() {
-    this.currentView.update((v) => (v === 'login' ? 'register' : 'login'));
+    this.currentView.update(v => (v === 'login' ? 'register' : 'login'));
+    const container = document.querySelector('.auth-background');
+    if (container) {
+      container.classList.toggle('flipped');
+    }
   }
 
   openPrivacyDialog() {

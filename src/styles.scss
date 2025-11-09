@@ -23,6 +23,9 @@ body {
   margin: 0;
 }
 
+.mdc-notched-outline__notch{
+  border-right: none !important;
+}
 
 
 html, body { height: 100%; }

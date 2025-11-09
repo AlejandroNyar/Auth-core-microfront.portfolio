@@ -51,7 +51,7 @@ export class Register {
       this.successMessage = this.translate.t("success.register.registerSuccess").toString();
       this.form.reset();
     } catch (err: any) {
-      this.errorMessage = this.translate.t("errors.register") + err.message;
+      this.errorMessage = this.translate.t("html.errors.register") + err.message;
     } finally {
       this.loading = false;
     }

@@ -1,6 +1,6 @@
 <h2 mat-dialog-title>{{this.translate.t("html.components.dialog.settings.title")()}}</h2>
 
-<mat-dialog-content>
+<mat-dialog-content class="flex flex-col">
   <mat-slide-toggle
     [checked]="settings.darkMode()"
     (change)="toggleDarkMode()">

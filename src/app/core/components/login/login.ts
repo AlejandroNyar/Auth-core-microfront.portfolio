@@ -48,7 +48,7 @@ export class Login {
       console.log('Login exitoso');
       //redirigir o enviar evento a otro microfrontend
     } catch (err: any) {
-      this.errorMessage = this.translate.t("errors.login") + err.message;
+      this.errorMessage = this.translate.t("html.errors.login") + err.message;
     } finally {
       this.loading = false;
     }

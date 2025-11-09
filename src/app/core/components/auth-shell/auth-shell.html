@@ -1,27 +1,29 @@
-<div class="auth-container">
+<div class="auth-background">
   <mat-card class="auth-card">
-    @if (currentView() === 'login') {
-        <div animate.enter="fade-in" animate.leave="fade-out">
+    <div class="card-inner" [class.flipped]="currentView() === 'register'">
+      <div class="card-face card-front">
         <app-login></app-login>
+        <div class="switch-container">
+          <button mat-button color="accent" (click)="toggleView()">{{this.translateService.t('html.components.auth-shell.toggleViewSignin')()}}</button>
         </div>
-    }@else if(currentView() === 'register'){
-        <div animate.enter="fade-in" animate.leave="fade-out">
-        <app-register></app-register>
-        </div>
-    }
+      </div>
 
-    <div class="switch-container">
-      <button mat-button color="accent" (click)="toggleView()">
-        {{
-          currentView() === 'login'
-            ? this.toggleViewTextSignIn()
-            : this.toggleViewTextLogIn()
-        }}
-      </button>
+      <div class="card-face card-back">  
+        <app-register></app-register>
+        <div class="switch-container">
+          <button mat-button color="accent" (click)="toggleView()">{{this.translateService.t('html.components.auth-shell.toggleViewLogin')()}}</button>
+        </div>
+      </div>
     </div>
   </mat-card>
+  <div class="color-layer base"></div>
+  <div class="color-layer overlay"></div>
 </div>
 <div class="actions text-center mt-4">
-  <button mat-button (click)="openPrivacyDialog()">{{this.translateService.t('html.components.auth-shell.privacyPolicy')()}}</button>
-  <button mat-button (click)="openSettingsDialog()">{{this.translateService.t('html.components.auth-shell.settings')()}}</button>
+  <button mat-button (click)="openPrivacyDialog()">
+    {{ this.translateService.t('html.components.auth-shell.privacyPolicy')() }}
+  </button>
+  <button mat-button (click)="openSettingsDialog()">
+    {{ this.translateService.t('html.components.auth-shell.settings')() }}
+  </button>
 </div>

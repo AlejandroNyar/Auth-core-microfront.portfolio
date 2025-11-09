@@ -1,5 +1,5 @@
 .auth-container {
-   display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -7,34 +7,45 @@
 
 }
 
-.auth-card {
-  padding: 1.5rem; /* p-6 */
-  width: 400px;    /* w-[400px] */
-  border-radius: 1rem; /* rounded-2xl */
-  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); /* approximación */
-  background-color: #ffffff; /* bg-white */
+.auth-background {
   position: relative;
   overflow: hidden;
-  min-height: 500px;
+  width: 100%;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  background-color: #51948D;
 }
+
+.color-layer {
+  position: absolute;
+  inset: 0;
+  min-height: 200vh;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+  transform-origin: center center;
+}
+
+.base {
+  background-color: #947151;
+  z-index: 1;
+}
+
+.overlay {
+  background-color: #51948D;
+  z-index: 2;
+  transform: rotate(60deg) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
 
 .switch-container {
   text-align: center;
   margin-top: 1rem;
 }
 
-:root.dark {
-  background-color: #121212;
-  color: #f1f1f1;
-}
-
-.dark mat-card {
-  background-color: #1e1e1e;
-  color: #fff;
-}
 
 .fade-in {
   @starting-style {
@@ -47,7 +58,89 @@
 }
 
 .fade-out {
+   @starting-style {
+    opacity: 1;
+    transform: translateX(0px);
+  }
   transition: opacity 400ms ease-out, transform 400ms ease-out;
   opacity: 0;
   transform: translateX(-20px);
 }
+
+.auth-background.flipped {
+  .overlay {
+    transform: translateX(100%) rotate(0deg);
+    //opacity: 0;
+  }
+
+  .base {
+    transform: rotate(60deg) scale(1.05);
+    //background-color: #51948D; // intercambiamos el color
+  }
+}
+
+
+.auth-card {
+  position: relative;
+  
+  width: 420px;
+  height: 80vh;
+  perspective: 1200px;
+  z-index: 10;
+  border-radius: 16px;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    transform-style: preserve-3d;
+  }
+
+  .card-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    background: rgba(255, 255, 255);
+    margin: 0 20px;
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+
+  .card-front {
+    transform: rotateY(0deg);
+  }
+
+  .card-back {
+    transform: rotateY(180deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .card-inner.flipped {
+    transform: rotateY(180deg) rotateX(2deg);
+  }
+
+  .switch-container {
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
+
+/* Animación adaptada si el usuario tiene "prefers-reduced-motion" */
+@media (prefers-reduced-motion: reduce) {
+  .auth-card .card-inner {
+    transition: none;
+    transform: none !important;
+  }
+}
+

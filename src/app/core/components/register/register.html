@@ -1,4 +1,4 @@
-<div class="flex justify-center items-center h-screen bg-gray-100">
+<div class="flex justify-center items-center  bg-gray-100">
   <mat-card class="w-96 p-6 rounded-2xl shadow-md">
     <h2 class="text-2xl font-semibold mb-6 text-center">{{this.translate.t("html.components.loginAndRegister.titleRegister")()}}</h2>
 
@@ -6,15 +6,15 @@
       <mat-form-field appearance="outline">
         <mat-label>{{this.translate.t("html.components.loginAndRegister.emailLbl")()}}</mat-label>
         <input matInput type="email" formControlName="email" />
-        @if(form.get('email')?.hasError('required')){<mat-error>{{this.translate.t("html.errors.form.requiredEmail")()}}</mat-error>}
-        @if(form.get('email')?.hasError('email')){<mat-error>{{this.translate.t("html.errors.form.formatInvalid")()}}</mat-error>}
+        @if(form.get('email')?.hasError('required')){<mat-error>{{this.translate.t("errors.forms.requiredEmail")()}}</mat-error>}
+        @if(form.get('email')?.hasError('email')){<mat-error>{{this.translate.t("errors.forms.formatInvalid")()}}</mat-error>}
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>{{this.translate.t("html.components.loginAndRegister.passLbl")()}}</mat-label>
         <input matInput type="password" formControlName="password" />
-        @if(form.get('password')?.hasError('required')){<mat-error>{{this.translate.t("html.errors.form.requiredPass")()}}</mat-error>}
-        @if(form.get('password')?.hasError('minlength')){<mat-error>{{this.translate.t("html.errors.form.passMinLenght")()}}</mat-error>}
+        @if(form.get('password')?.hasError('required')){<mat-error>{{this.translate.t("errors.forms.requiredPass")()}}</mat-error>}
+        @if(form.get('password')?.hasError('minlength')){<mat-error>{{this.translate.t("errors.forms.passMinLenght")()}}</mat-error>}
       </mat-form-field>
 
       <mat-form-field appearance="outline">

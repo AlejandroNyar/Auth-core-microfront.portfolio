@@ -1,6 +1,9 @@
 @use '@angular/material' as mat;
 @use "tailwindcss";
 
+@use './styles/themes' as *;
+@use './styles/mixins' as *;
+
 html {
   @include mat.theme((
     color: (
@@ -16,8 +19,8 @@ body {
   
   color-scheme: light;
 
-  background-color: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
   font: var(--mat-sys-body-medium);
 
   margin: 0;
@@ -27,6 +30,17 @@ body {
   border-right: none !important;
 }
 
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-text-field__input{
+  color: var(--color-text) !important;
+}
+.mat-mdc-card{
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.mat-mdc-unelevated-button:not(:disabled){
+  background-color: var(--color-primary) !important;
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

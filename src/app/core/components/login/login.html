@@ -1,40 +1,53 @@
-<div class="flex justify-center items-center  bg-gray-100">
-  <mat-card class="w-96 p-6 rounded-2xl shadow-md">
-    <h2 class="text-2xl font-semibold mb-6 text-center">{{this.translate.t("html.components.loginAndRegister.titleLogin")()}}</h2>
+<div class="flex justify-center items-center">
+  <mat-card class="auth-wraper w-96 pb-6 pt-6 rounded-2xl">
+    <h2 class="text-2xl font-semibold mb-6 text-center">
+      {{ this.translate.t('html.components.loginAndRegister.titleLogin')() }}
+    </h2>
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
       <mat-form-field appearance="outline">
-        <mat-label>{{this.translate.t("html.components.loginAndRegister.emailLbl")()}}</mat-label>
+        <mat-label>{{ this.translate.t('html.components.loginAndRegister.emailLbl')() }}</mat-label>
         <input matInput type="email" formControlName="email" />
-        @if (form.get('email')?.hasError('required')){ <mat-error>{{this.translate.t("errors.forms.requiredEmail")()}}</mat-error> }
-        @if (form.get('email')?.hasError('email')){ <mat-error>{{this.translate.t("errors.forms.formatInvalid")()}}</mat-error> }
+        @if (form.get('email')?.hasError('required')){
+        <mat-error>{{ this.translate.t('errors.forms.requiredEmail')() }}</mat-error> } @if
+        (form.get('email')?.hasError('email')){
+        <mat-error>{{ this.translate.t('errors.forms.formatInvalid')() }}</mat-error> }
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>{{this.translate.t("html.components.loginAndRegister.passLbl")()}}</mat-label>
+        <mat-label>{{ this.translate.t('html.components.loginAndRegister.passLbl')() }}</mat-label>
         <input matInput type="password" formControlName="password" />
-        @if (form.get('password')?.hasError('password')){ <mat-error>{{this.translate.t("errors.forms.requiredPass")()}}</mat-error> }
-        @if (form.get('password')?.hasError('minlenght')){ <mat-error>{{this.translate.t("errors.forms.passMinLenght")()}}</mat-error>}
+        @if (form.get('password')?.hasError('password')){
+        <mat-error>{{ this.translate.t('errors.forms.requiredPass')() }}</mat-error> } @if
+        (form.get('password')?.hasError('minlenght')){
+        <mat-error>{{ this.translate.t('errors.forms.passMinLenght')() }}</mat-error
+        >}
       </mat-form-field>
 
       @if (errorMessage){
-        <div class="text-red-500 text-sm">
-          {{ errorMessage }}
-        </div>
+      <div class="text-red-500 text-sm">
+        {{ errorMessage }}
+      </div>
       }
 
-      <button
-        mat-flat-button
-        color="primary"
-        type="submit"
-        [disabled]="loading"
-      >
+      <button mat-flat-button color="primary" type="submit" [disabled]="loading">
         @if (!loading) {
-          <ng-container>{{this.translate.t("html.components.loginAndRegister.loginTextBtn")()}}</ng-container>
+        <ng-container>{{
+          this.translate.t('html.components.loginAndRegister.loginTextBtn')()
+        }}</ng-container>
         }@else{
-          <mat-progress-spinner diameter="20" mode="indeterminate"></mat-progress-spinner>
+        <mat-progress-spinner diameter="20" mode="indeterminate"></mat-progress-spinner>
         }
       </button>
+
+      <div class="google-auth">
+        <button mat-stroked-button color="primary" (click)="onGoogleLogin()">
+          <span class="google-login-label">
+            <img src="assets\img\Google__G__logo.svg" alt="Google logo" class="google-icon" />
+            Sign in with Google
+          </span>
+        </button>
+      </div>
     </form>
   </mat-card>
 </div>

@@ -53,4 +53,15 @@ export class Login {
       this.loading = false;
     }
   }
+
+  onGoogleLogin() {
+    this.auth.loginWithGoogle().subscribe({
+      next: (cred) => {
+        console.log('Usuario autenticado con Google:', cred.user);
+      },
+      error: (err) => {
+        console.error('Error al iniciar sesión con Google:', err);
+      }
+    });
+  }
 }

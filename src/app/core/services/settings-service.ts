@@ -1,4 +1,4 @@
-import { inject, Injectable, signal, WritableSignal } from '@angular/core';
+import { inject, Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import { TranslateService } from './translate-service';
 
 @Injectable({
@@ -40,11 +40,23 @@ export class SettingsService {
         this.theme.set(settings.theme ?? 'default');
 
         this.translate.setLanguage(this.language());
-        if (this.darkMode()) document.documentElement.classList.add('dark');
+        if (this.darkMode()) document.body.classList.toggle('dark-theme', this.darkMode());
       } catch (e) {
         console.warn('Error al parsear cookie de configuración', e);
       }
     }
+  }
+  
+  toggleDarkMode(){
+    this.darkMode.update((value) => !value); 
+    document.body.classList.toggle('dark-theme', this.darkMode());
+    this.saveSettings()
+  }
+
+  setLanguageCookie(lang: string){
+    this.language.update((value) => (lang === 'en' || lang === 'es' || lang === 'de')? lang : value); 
+    this.translate.setLanguage(this.language());
+    this.saveSettings()
   }
 
   saveSettings() {

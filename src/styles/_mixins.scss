@@ -1,0 +1,10 @@
+@function color($name) {
+  @return var(--color-#{$name});
+}
+
+@mixin card-style {
+  background-color: color(surface);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-elevated);
+  padding: 1rem;
+}

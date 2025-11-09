@@ -11,19 +11,19 @@
       [checked]="darkMode()"
       (change)="toggleDarkMode($event)"
     >
-      Modo oscuro
+      <span class="textLabel">Modo oscuro</span>
     </mat-slide-toggle>
 
     <mat-form-field appearance="outline" class="lang-select">
-      <mat-label>Idioma</mat-label>
-      <mat-select [value]="language()" (selectionChange)="changeLanguage($event.value)">
+      <mat-label class="textLabel">Idioma</mat-label>
+      <mat-select class="textLabel" [value]="language()" (selectionChange)="changeLanguage($event.value)">
         <mat-option value="es">Español</mat-option>
         <mat-option value="en">English</mat-option>
         <mat-option value="de">Deutsch</mat-option>
       </mat-select>
     </mat-form-field>
 
-    <button class="settingsDialogBtn" color="accent" (click)="openSettingsDialog()">
+    <button mat-flat-button class="settingsDialogBtn" color="accent" (click)="openSettingsDialog()">
       Más ajustes
     </button>
   </div>

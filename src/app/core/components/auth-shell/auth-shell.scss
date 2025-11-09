@@ -1,13 +1,5 @@
-.auth-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f3f4f6;
-
-}
-
 .auth-background {
+  color: var(--color-text);
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -16,28 +8,34 @@
   align-items: center;
   justify-content: center;
   perspective: 1000px;
-  background-color: #51948D;
+  background-color: var(--color-primary);
 }
 
 .color-layer {
   position: absolute;
   inset: 0;
   min-height: 200vh;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  background-color: var(--color-primary);
+  box-shadow: var(--shadow-elongated);
   transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
   transform-origin: center center;
 }
 
+.auth-wraper{
+  background-color: var(--color-primary) !important;
+  box-shadow: none !important;
+}
+
 .base {
-  background-color: #947151;
+  background-color: var(--color-secondary);
   z-index: 1;
 }
 
 .overlay {
-  background-color: #51948D;
+  background-color: var(--color-primary);
   z-index: 2;
   transform: rotate(60deg) scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow-elongated);
 }
 
 
@@ -75,16 +73,15 @@
 
   .base {
     transform: rotate(60deg) scale(1.05);
-    //background-color: #51948D; // intercambiamos el color
+    //background-color: var(--color-primary); // intercambiamos el color
   }
 }
 
 
 .auth-card {
   position: relative;
-  
   width: 420px;
-  height: 80vh;
+  height: 90vh;
   perspective: 1200px;
   z-index: 10;
   border-radius: 16px;
@@ -104,11 +101,11 @@
     position: absolute;
     inset: 0;
     backface-visibility: hidden;
-    background: rgba(255, 255, 255);
+    background: var(--color-surface);
     margin: 0 20px;
     backdrop-filter: blur(10px);
     border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--shadow-elevated);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

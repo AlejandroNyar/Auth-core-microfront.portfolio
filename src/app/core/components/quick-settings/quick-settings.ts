@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogSettings } from '../dialog-settings/dialog-settings';
 import { CommonModule } from '@angular/common';
@@ -7,6 +7,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
+import { SettingsService } from '../../services/settings-service';
 
 @Component({
   selector: 'app-quick-settings',
@@ -22,9 +23,12 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './quick-settings.scss',
 })
 export class QuickSettings {
+  private settingsService = inject(SettingsService)
+  
   isOpen = signal(false);
-  darkMode = signal(false);
-  language = signal('en');
+  darkMode = this.settingsService.darkMode ?? signal(false);
+  language = this.settingsService.language ?? signal('en');
+
 
   constructor(private dialog: MatDialog) {}
 
@@ -33,13 +37,11 @@ export class QuickSettings {
   }
 
   toggleDarkMode(event: any) {
-    this.darkMode.set(event.checked);
-    document.body.classList.toggle('dark-theme', this.darkMode());
+    this.settingsService.toggleDarkMode()
   }
 
   changeLanguage(lang: string) {
-    //this.language.set(lang);
-    console.log('Setted Lang');
+    this.settingsService.setLanguageCookie(lang)
   }
 
   openSettingsDialog() {

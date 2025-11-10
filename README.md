@@ -136,5 +136,8 @@ npm start
 # Author
 
 ## Alejandro P. B.
-Frontend Developer | Microfrontend Architecture | Angular Specialist
-📧 alejandropb@gmail.com
+Frontend Developer | Microfrontend Architecture | Angular Specialist <br/>
+
+## Contact: 
+ * mail: alejandropb@gmail.com
+ * linkedin: https://www.linkedin.com/in/alejandro-nyar/

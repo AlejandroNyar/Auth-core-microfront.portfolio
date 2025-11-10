@@ -40,7 +40,6 @@ export class SettingsService {
       try {
         const settings = JSON.parse(cookie);
         this.darkMode.set(settings.darkMode ?? false);
-        console.log(this.darkMode());
         this.language.set(settings.language ?? 'es');
 
         this.translate.setLanguage(this.language());

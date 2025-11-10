@@ -51,7 +51,7 @@ export class Login {
       }
       await this.auth.login(email!, password!);
       console.log('Login exitoso');
-      //redirigir o enviar evento a otro microfrontend
+      //TODO: redirigir o enviar evento a otro microfrontend
     } catch (err: any) {
       this.errorMessage = this.translateService.t("html.errors.login") + err.message;
     } finally {

@@ -1,17 +1,17 @@
 import { Routes } from '@angular/router';
+import { AuthShell } from './core/components/auth-shell/auth-shell';
+import { Login } from './core/components/login/login';
+import { Register } from './core/components/register/register';
 
 export const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'main',
-    pathMatch: 'full',
+    path: 'auth',
+    component: AuthShell,
+    children: [
+      { path: 'login', component: Login },
+      { path: 'register', component: Register },
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+    ],
   },
-  {
-    path: 'main',
-    loadComponent: () => import('./core/components/auth-shell/auth-shell').then((m) => m.AuthShell),
-  },
-  {
-    path: '**',
-    redirectTo: 'main',
-  },
+  { path: '**', redirectTo: 'auth/login' },
 ];

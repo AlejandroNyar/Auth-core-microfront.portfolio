@@ -1,4 +1,4 @@
-<a href= "./README.es.md"> Version en Español  </a> | <span style="font-weight:700"> English Version</span>
+<a href= "./README.es.md"> Versión en Español  </a> | <span style="font-weight:700"> English Version</span>
 
 
 # Auth Core Microfrontend

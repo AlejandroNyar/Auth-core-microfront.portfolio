@@ -1,4 +1,4 @@
-<link href= "../README.md"> english version</link>
+<a href= "../README.md"> english version</a>
 
 # Auth Core Microfrontend
 

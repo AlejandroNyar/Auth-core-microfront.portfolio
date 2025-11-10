@@ -112,13 +112,16 @@ npm start
 * For secure backend requests, use the provided AuthInterceptor to attach the user’s Firebase JWT token to all HTTP requests.
 
 # Technologies Used
-[Category]  -	[Technology]
-[Framework] - [Angular 20 (standalone components + signals)]
-[UI] - [Angular Material]
-[Auth] - [Firebase Authentication]
-[State management] - [Signals (no NgRx required)]
-[Language] - [i18n with dynamic JSON loading]
-[Styling] - [SCSS with theme variables and mixins]
++------------------+--------------------------------------------------+
+|     Category     |	                 [Technology]                   |
++------------------+--------------------------------------------------+
+|     Framework    |  [Angular 20 (standalone components + signals)]  | 
+|        UI        |                 Angular Material                 |
+|       Auth       |              Firebase Authentication             |
+| State management |             Signals (no NgRx required)           |
+|     Language     |           i18n with dynamic JSON loading         |
+|      Styling     |       SCSS with theme variables and mixins       |
++------------------+--------------------------------------------------+
 
 # Future Improvements
 

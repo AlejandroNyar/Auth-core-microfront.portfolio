@@ -8,8 +8,10 @@
         "toggleViewLogin": "Bereits ein Konto? Anmelden"
       },
       "loginAndRegister": {
+        "acceptPrivacyText": "Ich habe die Datenschutzrichtlinie gelesen und akzeptiere sie",
         "titleLogin": "Anmelden",
         "titleRegister": "Konto erstellen",
+        "rememberText": "Erinnere dich an mich",
         "emailLbl": "E-Mail",
         "passLbl": "Passwort",
         "repeatPassLbl": "Passwort wiederholen",
@@ -32,9 +34,6 @@
           "title": "Einstellungen",
           "darkModeLbl": "Dunkelmodus",
           "languageLbl": "Sprache",
-          "esLanguagelbl": "Spanisch",
-          "enLanguagelbl": "Englisch",
-          "deLanguagelbl": "Deutsch",
           "themeLbl": "Thema",
           "closeBtn": "Schließen"
         }
@@ -43,9 +42,11 @@
   },
   "errors": {
     "forms": {
+      "requiredPrivacy": "Sie müssen die Datenschutzrichtlinie akzeptieren",
       "formatInvalid": "Ungültiges Format",
       "requiredEmail": "E-Mail ist erforderlich",
       "requiredPass": "Passwort ist erforderlich",
+      "passwordMismatch": "Passwörter stimmen nicht überein",
       "passMinLenght": "Mindestens 6 Zeichen"
     },
     "login": "Anmeldefehler:",

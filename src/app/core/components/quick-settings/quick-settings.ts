@@ -8,6 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { SettingsService } from '../../services/settings-service';
+import { TranslateService } from '../../services/translate-service';
 
 @Component({
   selector: 'app-quick-settings',
@@ -23,7 +24,8 @@ import { SettingsService } from '../../services/settings-service';
   styleUrl: './quick-settings.scss',
 })
 export class QuickSettings {
-  private settingsService = inject(SettingsService)
+  private settingsService = inject(SettingsService);
+  translateService: TranslateService = inject(TranslateService);
   
   isOpen = signal(false);
   darkMode = this.settingsService.darkMode ?? signal(false);

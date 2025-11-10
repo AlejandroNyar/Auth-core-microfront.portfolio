@@ -41,7 +41,6 @@
 
 .switch-container {
   text-align: center;
-  margin-top: 1rem;
 }
 
 
@@ -82,6 +81,7 @@
   position: relative;
   width: 420px;
   height: 90vh;
+  min-height: 650px;
   perspective: 1200px;
   z-index: 10;
   border-radius: 16px;
@@ -126,11 +126,7 @@
   .card-inner.flipped {
     transform: rotateY(180deg) rotateX(2deg);
   }
-
-  .switch-container {
-    text-align: center;
-    margin-top: 1rem;
-  }
+  
 }
 
 /* Animación adaptada si el usuario tiene "prefers-reduced-motion" */

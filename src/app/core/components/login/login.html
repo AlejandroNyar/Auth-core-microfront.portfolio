@@ -1,28 +1,34 @@
 <div class="flex justify-center items-center">
   <mat-card class="auth-wraper w-96 pb-6 pt-6 rounded-2xl">
     <h2 class="text-2xl font-semibold mb-6 text-center">
-      {{ this.translate.t('html.components.loginAndRegister.titleLogin')() }}
+      {{ this.translateService.t('html.components.loginAndRegister.titleLogin')() }}
     </h2>
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
       <mat-form-field appearance="outline">
-        <mat-label>{{ this.translate.t('html.components.loginAndRegister.emailLbl')() }}</mat-label>
+        <mat-label class="text-color-principal">{{ this.translateService.t('html.components.loginAndRegister.emailLbl')() }}</mat-label>
         <input matInput type="email" formControlName="email" />
         @if (form.get('email')?.hasError('required')){
-        <mat-error>{{ this.translate.t('errors.forms.requiredEmail')() }}</mat-error> } @if
+        <mat-error>{{ this.translateService.t('errors.forms.requiredEmail')() }}</mat-error> } @if
         (form.get('email')?.hasError('email')){
-        <mat-error>{{ this.translate.t('errors.forms.formatInvalid')() }}</mat-error> }
+        <mat-error>{{ this.translateService.t('errors.forms.formatInvalid')() }}</mat-error> }
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>{{ this.translate.t('html.components.loginAndRegister.passLbl')() }}</mat-label>
+        <mat-label class="text-color-principal">{{ this.translateService.t('html.components.loginAndRegister.passLbl')() }}</mat-label>
         <input matInput type="password" formControlName="password" />
         @if (form.get('password')?.hasError('password')){
-        <mat-error>{{ this.translate.t('errors.forms.requiredPass')() }}</mat-error> } @if
+        <mat-error>{{ this.translateService.t('errors.forms.requiredPass')() }}</mat-error> } @if
         (form.get('password')?.hasError('minlenght')){
-        <mat-error>{{ this.translate.t('errors.forms.passMinLenght')() }}</mat-error
+        <mat-error>{{ this.translateService.t('errors.forms.passMinLenght')() }}</mat-error
         >}
       </mat-form-field>
+
+      <mat-checkbox class="rememberCbx" formControlName="rememberMe">
+        <span class="text-color-principal">
+          {{this.translateService.t("html.components.loginAndRegister.rememberText")}}
+        </span> 
+      </mat-checkbox>
 
       @if (errorMessage){
       <div class="text-red-500 text-sm">
@@ -33,7 +39,7 @@
       <button mat-flat-button color="primary" type="submit" [disabled]="loading">
         @if (!loading) {
         <ng-container>{{
-          this.translate.t('html.components.loginAndRegister.loginTextBtn')()
+          this.translateService.t('html.components.loginAndRegister.loginTextBtn')()
         }}</ng-container>
         }@else{
         <mat-progress-spinner diameter="20" mode="indeterminate"></mat-progress-spinner>

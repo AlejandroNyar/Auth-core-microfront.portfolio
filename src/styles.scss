@@ -26,6 +26,12 @@ body {
   margin: 0;
 }
 
+.text-color-principal
+{
+  color: var(--color-text) !important;
+}
+
+
 .mdc-notched-outline__notch{
   border-right: none !important;
 }

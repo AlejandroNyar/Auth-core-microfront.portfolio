@@ -28,7 +28,6 @@ export class DialogSettings {
 
   toggleDarkMode() {
     this.settings.darkMode.update(v => !v);
-    document.documentElement.classList.toggle('dark', this.settings.darkMode());
     this.settings.saveSettings();
   }
 

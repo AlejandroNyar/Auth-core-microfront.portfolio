@@ -8,8 +8,10 @@
         "toggleViewLogin": "¿Ya tienes cuenta? Inicia sesión"
       },
       "loginAndRegister": {
+        "acceptPrivacyText": "He leído y acepto la",
         "titleLogin": "Iniciar Sesión",
         "titleRegister": "Crear cuenta",
+        "rememberText": "Recuerdame",
         "emailLbl": "Email",
         "passLbl": "Contraseña",
         "repeatPassLbl": "Repetir Contraseña",
@@ -32,9 +34,6 @@
           "title": "Configuración",
           "darkModeLbl": "Modo Oscuro",
           "languageLbl": "Idioma",
-          "esLanguagelbl": "Español",
-          "enLanguagelbl": "Inglés",
-          "deLanguagelbl": "Alemán",
           "themeLbl": "Tema",
           "closeBtn": "Cerrar"
         }
@@ -43,9 +42,11 @@
   },
   "errors": {
     "forms": {
+      "requiredPrivacy": "Debes aceptar la política de privacidad",
       "formatInvalid": "Formato inválido",
       "requiredEmail": "El email es obligatorio",
       "requiredPass": "La contraseña es obligatoria",
+      "passwordMismatch": "Las contraseñas no coinciden",
       "passMinLenght": "Mínimo 6 caracteres"
     },
     "login": "Error en el login:",

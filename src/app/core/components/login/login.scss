@@ -17,3 +17,12 @@
     }
   }
 }
+
+mat-checkbox.rememberCbx {
+  font-size: 0.9rem;
+  text-align: center;
+
+  & .mat-mdc-checkbox .mat-internal-form-field {
+    color: var(--color-text, #555) !important;
+  }
+}

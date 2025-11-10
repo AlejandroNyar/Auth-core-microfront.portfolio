@@ -8,8 +8,10 @@
         "toggleViewLogin": "Already have an account? Sign in"
       },
       "loginAndRegister": {
+        "acceptPrivacyText": "I have read and accept the",
         "titleLogin": "Sign In",
         "titleRegister": "Create Account",
+        "rememberText": "Remember me",
         "emailLbl": "Email",
         "passLbl": "Password",
         "repeatPassLbl": "Repeat Password",
@@ -32,9 +34,6 @@
           "title": "Settings",
           "darkModeLbl": "Dark Mode",
           "languageLbl": "Language",
-          "esLanguagelbl": "Spanish",
-          "enLanguagelbl": "English",
-          "deLanguagelbl": "German",
           "themeLbl": "Theme",
           "closeBtn": "Close"
         }
@@ -43,9 +42,11 @@
   },
   "errors": {
     "forms": {
+      "requiredPrivacy": "You must accept the privacy policy",
       "formatInvalid": "Invalid format",
       "requiredEmail": "Email is required",
       "requiredPass": "Password is required",
+      "passwordMismatch": "Passwords do not match",
       "passMinLenght": "Minimum 6 characters"
     },
     "login": "Login error:",

@@ -17,3 +17,18 @@
     }
   }
 }
+
+.errorPrivacy{
+  text-align: center;
+}
+
+.mat-mdc-checkbox .mat-internal-form-field {
+  font-size: 0.9rem;
+  text-align: center;
+
+  a {
+    color: var(--primary, #51948D);
+    text-decoration: underline;
+  }
+
+}

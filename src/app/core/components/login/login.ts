@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms'
 import { AuthService } from '../../services/auth';
 import { CommonModule } from '@angular/common';
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -14,6 +14,7 @@ import { TranslateService } from '../../services/translate-service';
   selector: 'app-login',
   imports: [ CommonModule,
     ReactiveFormsModule,
+    MatCheckboxModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
@@ -26,7 +27,7 @@ import { TranslateService } from '../../services/translate-service';
 export class Login {
   private fb = inject(FormBuilder);
   private auth = inject(AuthService);
-  translate = inject(TranslateService);
+  translateService = inject(TranslateService);
 
   loading = false;
   errorMessage = '';
@@ -34,6 +35,7 @@ export class Login {
   form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
+    rememberMe: [false]
   });
 
   async onSubmit() {
@@ -41,14 +43,17 @@ export class Login {
     this.loading = true;
     this.errorMessage = '';
 
-    const { email, password } = this.form.value;
+    const { email, password, rememberMe } = this.form.value;
 
     try {
+       if (rememberMe) {
+        // TODO: Guardar token más largo o marcar cookie persistente
+      }
       await this.auth.login(email!, password!);
       console.log('Login exitoso');
       //redirigir o enviar evento a otro microfrontend
     } catch (err: any) {
-      this.errorMessage = this.translate.t("html.errors.login") + err.message;
+      this.errorMessage = this.translateService.t("html.errors.login") + err.message;
     } finally {
       this.loading = false;
     }

@@ -13,6 +13,7 @@ $toggleBtnWidth: 48px;
 
   .toggle-btn {
     background-color: var(--color-secondary);
+    color: var(--color-text);
     border-radius: 50% 0 0 50%;
     width: $toggleBtnWidth;
     height: $toggleBtnWidth;

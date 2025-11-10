@@ -10,10 +10,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '../../services/translate-service';
 import { SettingsService } from '../../services/settings-service';
 import { QuickSettings } from '../quick-settings/quick-settings';
+import { Footer } from '../footer/footer';
 
 @Component({
   selector: 'app-auth-shell',
-  imports: [CommonModule, QuickSettings, Login, Register, MatButtonModule, MatCardModule],
+  imports: [CommonModule, QuickSettings, Login, Register, MatButtonModule, MatCardModule, Footer],
   templateUrl: './auth-shell.html',
   styleUrl: './auth-shell.scss',
 })

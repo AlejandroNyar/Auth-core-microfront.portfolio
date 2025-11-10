@@ -9,12 +9,17 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { createUserWithEmailAndPassword } from '@angular/fire/auth';
 import { AuthService } from '../../services/auth';
 import { TranslateService } from '../../services/translate-service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogPrivacy } from '../dialog-privacy/dialog-privacy';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { matchPasswordValidator } from '../../validators/matchPasswordValidator';
 
 @Component({
   selector: 'app-register',
   imports: [CommonModule,
     ReactiveFormsModule,
     MatCardModule,
+    MatCheckboxModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
@@ -25,17 +30,28 @@ import { TranslateService } from '../../services/translate-service';
 export class Register {
   private fb = inject(FormBuilder);
   private auth = inject(AuthService);
-  translate = inject(TranslateService);
+  translateService = inject(TranslateService);
 
   loading = false;
   errorMessage = '';
   successMessage = '';
+  errorPrivacyDisplay = false;
+
+  constructor(private dialog:MatDialog){
+
+  }
 
   form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
     repeatPassword: ['', [Validators.required, Validators.minLength(6)]],
-  });
+    acceptTerms: [false, Validators.requiredTrue]
+  },
+  { validators: matchPasswordValidator('password', 'repeatPassword') });
+
+  onPrivacyChange(){
+    this.errorPrivacyDisplay = true;
+  }
 
   async onSubmit() {
     if (this.form.invalid) return;
@@ -48,13 +64,17 @@ export class Register {
     try {
       // Utilizamos directamente createUserWithEmailAndPassword
       await createUserWithEmailAndPassword(this.auth['auth'], email!, password!);
-      this.successMessage = this.translate.t("success.register.registerSuccess").toString();
+      this.successMessage = this.translateService.t("success.register.registerSuccess").toString();
       this.form.reset();
     } catch (err: any) {
-      this.errorMessage = this.translate.t("html.errors.register") + err.message;
+      this.errorMessage = this.translateService.t("html.errors.register") + err.message;
     } finally {
       this.loading = false;
     }
+  }
+
+  openPrivacyDialog(){
+    this.dialog.open(DialogPrivacy, { width: '500px' });
   }
 
   onGoogleSignup() {

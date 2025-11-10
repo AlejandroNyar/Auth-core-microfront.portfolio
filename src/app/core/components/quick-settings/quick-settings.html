@@ -4,18 +4,18 @@
   </button>
 
   <div class="panel">
-    <h4>Ajustes rápidos</h4>
+    <h4>{{this.translateService.t("html.components.dialog.settings.title")()}}</h4>
 
     <mat-slide-toggle
         class="darkModeToggle"
       [checked]="darkMode()"
       (change)="toggleDarkMode($event)"
     >
-      <span class="textLabel">Modo oscuro</span>
+      <span class="textLabel">{{this.translateService.t("html.components.dialog.settings.darkModeLbl")()}}</span>
     </mat-slide-toggle>
 
     <mat-form-field appearance="outline" class="lang-select">
-      <mat-label class="textLabel">Idioma</mat-label>
+      <mat-label class="textLabel">{{this.translateService.t("html.components.dialog.settings.languageLbl")()}}</mat-label>
       <mat-select class="textLabel" [value]="language()" (selectionChange)="changeLanguage($event.value)">
         <mat-option value="es">Español</mat-option>
         <mat-option value="en">English</mat-option>

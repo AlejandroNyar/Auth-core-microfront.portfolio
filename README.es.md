@@ -1,4 +1,4 @@
-
+<link src= "../README.md"> english version</link>
 
 # Auth Core Microfrontend
 

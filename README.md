@@ -1,3 +1,5 @@
+
+
 # Auth Core Microfrontend
 
 A modular authentication microfrontend built with Angular 20, Firebase Authentication, and Angular Material.
@@ -101,7 +103,7 @@ npm start
 
 ## Integrating with Other Microfrontends
 
-* Any other microfrontend that needs authentication can reuse the same Firebase project and session:
+* Any other microfrontend that needs authentication can reuse the same Firebase project and session.
 
 * Initialize Firebase with the same config.
 
@@ -140,4 +142,5 @@ Frontend Developer | Microfrontend Architecture | Angular Specialist <br/>
 
 ## Contact: 
  * mail: alejandropb@gmail.com
- * linkedin: https://www.linkedin.com/in/alejandro-nyar/
+ * linked-in: https://www.linkedin.com/in/alejandro-nyar/
+ * github: https://github.com/AlejandroNyar

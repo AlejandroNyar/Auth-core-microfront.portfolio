@@ -113,7 +113,7 @@ npm start
 
 # Technologies Used
 
-|     <b>Category </b>    |	                 <b>Technology</b>                     |
+| <span style="font-weight:700">Category </span>  |	<span style="font-weight:700">Technology</span>|
 |:----------------:|:------------------------------------------------:|
 |     Framework    |   Angular 20 (standalone components + signals)   | 
 |        UI        |                 Angular Material                 |

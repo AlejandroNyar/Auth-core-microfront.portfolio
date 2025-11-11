@@ -1,27 +1,60 @@
 import { inject, Injectable } from '@angular/core';
 import {
   Auth,
+  browserLocalPersistence,
+  browserSessionPersistence,
   GoogleAuthProvider,
+  onAuthStateChanged,
+  setPersistence,
   signInWithEmailAndPassword,
   signInWithPopup,
+  User,
   UserCredential,
 } from '@angular/fire/auth';
-import { from, Observable } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
+import { SettingsService } from './settings-service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private auth = inject(Auth);
+  private settingService = inject(SettingsService);
 
-  login(email: string, password: string) {
+  constructor() {
+  }
+
+  async login(
+    email: string,
+    password: string,
+    rememberMe: boolean = false
+  ): Promise<UserCredential> {
+    const persistence = rememberMe ? browserLocalPersistence : browserSessionPersistence;
+
+    await setPersistence(this.auth, persistence);
     return signInWithEmailAndPassword(this.auth, email, password);
   }
 
-  loginWithGoogle(): Observable<UserCredential> {
+  async loginWithGoogle(): Promise<UserCredential> {
+    const persistence = this.settingService.rememberMe()
+      ? browserLocalPersistence
+      : browserSessionPersistence;
+
+    await setPersistence(this.auth, persistence);
     const provider = new GoogleAuthProvider();
     provider.setCustomParameters({ prompt: 'select_account' });
-    return from(signInWithPopup(this.auth, provider));
+    const userCredential = await signInWithPopup(this.auth, provider);
+    return userCredential;
+  }
+
+  checkUserActive(){
+    onAuthStateChanged(this.auth, (user: User | null) => {
+      if (user) {
+        console.log('Usuario autenticado:', user.email);
+      } else {
+        console.log('No autenticado');
+      }
+    });
   }
 
   /** Cierra sesión */

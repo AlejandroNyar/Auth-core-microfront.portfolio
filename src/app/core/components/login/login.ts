@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TranslateService } from '../../services/translate-service';
+import { SettingsService } from '../../services/settings-service';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +28,9 @@ import { TranslateService } from '../../services/translate-service';
 export class Login {
   private fb = inject(FormBuilder);
   private auth = inject(AuthService);
+  private settingService: SettingsService = inject(SettingsService)
   translateService = inject(TranslateService);
+
 
   loading = false;
   errorMessage = '';
@@ -35,7 +38,7 @@ export class Login {
   form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
-    rememberMe: [false]
+    rememberMe: [this.settingService.rememberMe()]
   });
 
   async onSubmit() {
@@ -43,13 +46,13 @@ export class Login {
     this.loading = true;
     this.errorMessage = '';
 
-    const { email, password, rememberMe } = this.form.value;
+    const { email, password } = this.form.value;
 
     try {
-       if (rememberMe) {
-        // TODO: Guardar token más largo o marcar cookie persistente
+      if (this.settingService.rememberMe()) {
+        // TODO: Guardar token más largo o marcar cookie persistente 
       }
-      await this.auth.login(email!, password!);
+      await this.auth.login(email!, password!, this.settingService.rememberMe() ?? false);
       console.log('Login exitoso');
       //TODO: redirigir o enviar evento a otro microfrontend
     } catch (err: any) {
@@ -59,12 +62,16 @@ export class Login {
     }
   }
 
-  onGoogleLogin() {
-    this.auth.loginWithGoogle().subscribe({
-      next: (cred) => {
+  setRememberMe(){
+    const { rememberMe } = this.form.value;
+    this.settingService.setRememberMe(rememberMe ?? false)
+  }
+
+  async onGoogleLogin() {
+    await this.auth.loginWithGoogle().then((cred) => {
+      try {
         console.log('Usuario autenticado con Google:', cred.user);
-      },
-      error: (err) => {
+      } catch (err) {
         console.error('Error al iniciar sesión con Google:', err);
       }
     });

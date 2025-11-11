@@ -24,7 +24,7 @@
         >}
       </mat-form-field>
 
-      <mat-checkbox class="rememberCbx" formControlName="rememberMe">
+      <mat-checkbox class="rememberCbx" formControlName="rememberMe" (change)="this.setRememberMe()">
         <span class="text-color-principal">
           {{this.translateService.t("html.components.loginAndRegister.rememberText")()}}
         </span> 

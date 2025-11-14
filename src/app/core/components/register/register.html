@@ -1,10 +1,10 @@
 <div class="flex justify-center items-center">
   <mat-card class="auth-wraper w-96 pt pb-6 rounded-2xl">
-    <h2 class="text-2xl font-semibold mb-6 text-center">
+    <h2 data-cy="titleSignin" class="text-2xl font-semibold mb-6 text-center">
       {{ this.translateService.t('html.components.loginAndRegister.titleRegister')() }}
     </h2>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
+    <form [formGroup]="form" data-cy="register-form" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
       <mat-form-field appearance="outline">
         <mat-label class="text-color-principal">{{ this.translateService.t('html.components.loginAndRegister.emailLbl')() }}</mat-label>
         <input matInput type="email" formControlName="email" />

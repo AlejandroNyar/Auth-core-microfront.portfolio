@@ -1,0 +1,12 @@
+{
+  "html": {
+    "components": {
+      "loginAndRegister": {
+        "titleLogin": "Sign in",
+        "titleRegister": "Create account",
+        "registerTextBtn": "Register",
+        "loginTextBtn": "Login"
+      }
+    }
+  }
+}

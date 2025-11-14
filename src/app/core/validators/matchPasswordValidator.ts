@@ -1,9 +1,8 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 /**
- * Validador que compara dos campos de contraseña.
- * @param passwordKey - Nombre del control de la contraseña principal
- * @param confirmPasswordKey - Nombre del control de confirmación
+ * @param passwordKey - control Password Input
+ * @param confirmPasswordKey - Comparate Pasword Input
  * @returns ValidatorFn
  */
 export function matchPasswordValidator(
@@ -18,7 +17,6 @@ export function matchPasswordValidator(
       group.get(confirmPasswordKey)?.setErrors({ passwordMismatch: true });
       return { passwordMismatch: true };
     } else {
-      // Limpia el error si las contraseñas coinciden
       const errors = group.get(confirmPasswordKey)?.errors;
       if (errors) {
         delete errors['passwordMismatch'];

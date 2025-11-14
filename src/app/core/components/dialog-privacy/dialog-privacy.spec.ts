@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { DialogPrivacy } from './dialog-privacy';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('DialogPrivacy', () => {
   let component: DialogPrivacy;
@@ -8,7 +9,11 @@ describe('DialogPrivacy', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DialogPrivacy]
+      imports: [DialogPrivacy],
+      providers: [
+        provideZonelessChangeDetection(),
+        provideHttpClientTesting()
+      ]
     })
     .compileComponents();
 

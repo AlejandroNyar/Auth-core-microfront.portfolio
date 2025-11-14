@@ -1,17 +1,17 @@
 <div class="auth-background">
-  <mat-card class="auth-card">
-    <div class="card-inner" [class.flipped]="currentView() === 'register'">
+  <mat-card class="auth-card" data-cy="auth-card">
+    <div class="card-inner" data-cy="auth-card-inner" [class.flipped]="currentView() === 'register'">
       <div class="card-face card-front">
         <app-login></app-login>
         <div class="switch-container">
-          <button mat-button color="accent" (click)="toggleView()">{{this.translateService.t('html.components.auth-shell.toggleViewSignin')()}}</button>
+          <button mat-button color="accent" (click)="toggleView()" data-cy="toggle-view-to-signin">{{this.translateService.t('html.components.auth-shell.toggleViewSignin')()}}</button>
         </div>
       </div>
 
       <div class="card-face card-back">  
         <app-register></app-register>
         <div class="switch-container">
-          <button mat-button color="accent" (click)="toggleView()">{{this.translateService.t('html.components.auth-shell.toggleViewLogin')()}}</button>
+          <button mat-button color="accent" (click)="toggleView()" data-cy="toggle-view-to-login">{{this.translateService.t('html.components.auth-shell.toggleViewLogin')()}}</button>
         </div>
       </div>
     </div>

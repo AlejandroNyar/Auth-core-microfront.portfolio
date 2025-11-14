@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DialogSettings } from './dialog-settings';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('DialogSettings', () => {
   let component: DialogSettings;
@@ -8,7 +9,8 @@ describe('DialogSettings', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DialogSettings]
+      imports: [DialogSettings],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
 

@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { createUserWithEmailAndPassword } from '@angular/fire/auth';
-import { AuthService } from '../../services/auth';
+import { AuthService } from '../../services/auth-service';
 import { TranslateService } from '../../services/translate-service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogPrivacy } from '../dialog-privacy/dialog-privacy';
@@ -64,7 +64,6 @@ export class Register {
     const { email, password } = this.form.value;
 
     try {
-      // Utilizamos directamente createUserWithEmailAndPassword
       await createUserWithEmailAndPassword(this.auth['auth'], email!, password!);
       this.successMessage = this.translateService.t('success.register.registerSuccess').toString();
       this.form.reset();

@@ -45,34 +45,32 @@
 
 
 .fade-in {
+  transition: opacity 400ms ease-out, transform 400ms ease-out;
+  opacity: 1;
+  transform: translateX(0);
   @starting-style {
     opacity: 0;
     transform: translateX(20px);
   }
-  transition: opacity 400ms ease-out, transform 400ms ease-out;
-  opacity: 1;
-  transform: translateX(0);
 }
 
 .fade-out {
-   @starting-style {
-    opacity: 1;
-    transform: translateX(0px);
-  }
   transition: opacity 400ms ease-out, transform 400ms ease-out;
   opacity: 0;
   transform: translateX(-20px);
+  @starting-style {
+   opacity: 1;
+   transform: translateX(0px);
+ }
 }
 
 .auth-background.flipped {
   .overlay {
     transform: translateX(100%) rotate(0deg);
-    //opacity: 0;
   }
 
   .base {
     transform: rotate(60deg) scale(1.05);
-    //background-color: var(--color-primary); // intercambiamos el color
   }
 }
 
@@ -129,7 +127,7 @@
   
 }
 
-/* Animación adaptada si el usuario tiene "prefers-reduced-motion" */
+/* prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   .auth-card .card-inner {
     transition: none;

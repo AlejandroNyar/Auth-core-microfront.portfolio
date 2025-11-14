@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { QuickSettings } from './quick-settings';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('QuickSettings', () => {
   let component: QuickSettings;
@@ -8,7 +9,8 @@ describe('QuickSettings', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [QuickSettings]
+      imports: [QuickSettings],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
 

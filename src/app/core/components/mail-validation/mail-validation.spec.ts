@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MailValidation } from './mail-validation';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('MailValidation', () => {
   let component: MailValidation;
@@ -8,7 +9,8 @@ describe('MailValidation', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MailValidation]
+      imports: [MailValidation],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
 

@@ -47,6 +47,10 @@ Este proyecto proporciona una capa de autenticación lista para usar (Inicio de 
 
 * Comparte el estado de sesión de Firebase entre subdominios
 
+## Diseñado en Figma
+
+* Link al diseño <a href="https://www.figma.com/design/U7vU44WoEspmheqyXVOvAq/Auth-microservice?m=auto&t=tShS9oeOeFKUqCf9-1">aquí</a>
+
 # Estructura del proyecto
 ```graphql
 src/

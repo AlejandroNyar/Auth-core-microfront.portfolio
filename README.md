@@ -50,6 +50,10 @@ This project provides a ready-to-use authentication layer (Login / Register / Go
 
 * Shares Firebase session state across subdomains
 
+## Designed In Figma
+
+* Link to see the design <a href="https://www.figma.com/design/U7vU44WoEspmheqyXVOvAq/Auth-microservice?m=auto&t=tShS9oeOeFKUqCf9-1">here</a>
+
 # Project Structure
 ```graphql
 src/
